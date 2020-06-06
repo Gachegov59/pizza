@@ -1,0 +1,13 @@
+@import "libs";
+@import "constants";
+@import "function";
+@import "mixins";
+@import "fonts";
+@import "base";
+@import "blocks/settings";
+
+//Ваши блоки
+
+@import "blocks/header/header";
+@import "blocks/header/header-nav";
+@import "blocks/footer";
