@@ -6,13 +6,25 @@
 
 html {
   font-size: $base-font-size;
-  font-family: "Roboto", sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
 }
 
 h1 {
@@ -37,4 +49,10 @@ h5 {
 
 h6 {
   font-size: rem(12px);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
 }

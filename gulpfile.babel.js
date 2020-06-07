@@ -2,7 +2,7 @@
 
 const path = {
     build: {
-        html: 'build/html/',
+        html: 'build/',
         js: 'build/js/',
         css: 'build/css/',
         images: 'build/images/',
@@ -48,16 +48,38 @@ import babel from 'gulp-babel';
 import util from 'gulp-util';
 import del from 'del';
 import rigger from 'gulp-rigger';
+import browserSync from 'browser-sync';
 
 const production = !!util.env.production;
 
-gulp.task('server', () => {
-    return connect.server({
-        port: 1378,
-        livereload: true,
-        root: 'build/'
+// gulp.task('server', () => {
+//     return connect.server({
+//         port: 1378,
+//         livereload: true,
+//         root: 'build/'
+//     });
+// });
+
+gulp.task('server', function () {
+    browserSync.init({
+        server: {
+            baseDir: "./build/"
+            // index: "/build/html/"
+        }
     });
 });
+
+
+// const server = require('browser-sync').create()
+//
+// module.exports = function serve(cb) {
+//     server.init ({
+//         server: 'build',
+//         notify: false,
+//         open: true,
+//         cors: true
+//     })
+// }
 
 gulp.task('js', () => {
     return gulp.src(path.src.js)
@@ -68,7 +90,8 @@ gulp.task('js', () => {
         .pipe(gulpif(!production, sourcemaps.write()))
         .pipe(gulpif(production, uglify()))
         .pipe(gulp.dest(path.build.js))
-        .pipe(connect.reload());
+        // .pipe(connect.reload());
+        .pipe(browserSync.stream());
 });
 
 gulp.task('styles', () => {
@@ -78,19 +101,23 @@ gulp.task('styles', () => {
         .pipe(sass({
             includePaths: ['node_modules']
         }).on('error', sass.logError))
-        .pipe(prefixer())
+        .pipe(prefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
         .pipe(gulpif(!production, sourcemaps.write()))
         .pipe(gulpif(production, cssmin()))
         .pipe(gulp.dest(path.build.css))
-        .pipe(connect.reload());
-
+        // .pipe(connect.reload());
+        .pipe(browserSync.stream());
 });
 
 gulp.task('pug', () => {
     return gulp.src(path.src.pug)
         .pipe(pug({pretty: true}))
         .pipe(gulp.dest(path.build.html))
-        .pipe(connect.reload());
+        // .pipe(connect.reload());
+        .pipe(browserSync.stream());
 });
 
 gulp.task('fonts', () => {
@@ -113,7 +140,8 @@ gulp.task('images', () => {
             })
         ])))
         .pipe(gulp.dest(path.build.images))
-        .pipe(connect.reload());
+        // .pipe(connect.reload());
+        .pipe(browserSync.stream());
 });
 
 //интерфейсная графика
@@ -130,7 +158,8 @@ gulp.task('img', () => {
             })
         ])))
         .pipe(gulp.dest(path.build.img))
-        .pipe(connect.reload());
+        // .pipe(connect.reload());
+        .pipe(browserSync.stream());
 });
 
 gulp.task('clean', () => {

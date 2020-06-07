@@ -1,3 +1,94 @@
-footer{
+.footer {
   margin-top: auto;
+  padding-top: 88px;
+
+  &._bg-dark {
+    background: $bg-dark;
+  }
+
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__logo {
+    margin: 42px 0 50px;
+  }
+
+  &__socials {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+
+
+    &-item {
+      width: 52px;
+      height: 52px;
+      border: 1px solid $color-grey;
+      border-radius: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 12.5px;
+      transition: all .3s ease;
+      &:nth-child(1) {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      @include phone {
+        margin: 8px;
+        width: 40px;
+        height: 40px;
+      }
+
+      svg {
+        width: 19px;
+        height: 19px;
+
+        @include phone {
+          width: 15px;
+          height: 15px;
+        }
+
+        path {
+          transition: all .3s ease;
+          fill: $color-grey;
+        }
+      }
+      &:hover {
+        border-color: $color-yellow;
+        svg path {
+          fill: $color-yellow;
+        }
+      }
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  &__link {
+    color: $color-white;
+    padding: 15px 25px;
+    font-size: 14px;
+    transition: all .3s ease;
+    &:hover {
+      color: $color-yellow;
+    }
+  }
+
+  &__copyright {
+    color: $color-grey-2;
+    line-height: 1.5;
+    font-size: 13px;
+    margin-bottom: 30px;
+  }
 }

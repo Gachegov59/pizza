@@ -1,6 +1,7 @@
 include head.pug
 include header.pug
 include footer.pug
+include header-nav.pug
 
 block variables
     
@@ -9,8 +10,9 @@ html(lang='ru')
     +head(page_title || '', scripts || [])
 
     body
-        +header()
+        +header('_bg-red')
+
         main
             block content
 
-        +footer()
+        +footer('_bg-dark')

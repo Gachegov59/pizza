@@ -1,0 +1,12 @@
+extends ./layout/layout
+include ./components/slider
+include ./components/menu
+include ./components/dashboard
+
+block variables
+    - var page_title = 'Главная';
+
+block content
+    +slider()
+    +menu()
+    +dashboard

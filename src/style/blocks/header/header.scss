@@ -1,0 +1,83 @@
+.header {
+  &._bg-red {
+    background: $bg-red;
+  }
+
+  &__wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(#ffffff, .17);
+    padding-top: 20px;
+  }
+
+  &__logo {
+    flex-grow: .5;
+    margin-left: auto;
+  }
+
+  &__nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    flex-grow: .5;
+    margin: auto;
+    padding: 10px 0;
+
+    &-link {
+      color: $color-white;
+      padding: 22px;
+      font-size: 15px;
+      position: relative;
+      letter-spacing: .2px;
+      transition: all .3s ease;
+      @include phone {
+        padding: 15px;
+      }
+
+      &::after {
+        content: "";
+        width: 0;
+        height: 0;
+        background: $color-yellow-2;
+        bottom: 16px;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+        transition: all .3s ease;
+        opacity: 0;
+      }
+
+      &:hover {
+        &::after {
+          opacity: 1;
+          width: 42px;
+          height: 2px;
+          @include phone {
+            bottom: 10px;
+          }
+        }
+      }
+
+      &._size-m {
+        font-size: 28px;
+      }
+
+      &._bold {
+        font-weight: 700;
+      }
+
+      &._hover-2 {
+        &:hover {
+          transform: scale(1.1);
+          &::after {
+            display: none;
+          }
+        }
+      }
+
+    }
+  }
+}

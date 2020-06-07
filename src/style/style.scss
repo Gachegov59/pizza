@@ -4,10 +4,13 @@
 @import "mixins";
 @import "fonts";
 @import "base";
-@import "blocks/settings";
 
-//Ваши блоки
+
+
 
 @import "blocks/header/header";
-@import "blocks/header/header-nav";
 @import "blocks/footer";
+@import "blocks/section";
+@import "blocks/slider";
+@import "blocks/menu";
+@import "blocks/dashboard";

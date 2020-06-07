@@ -1,0 +1,80 @@
+.menu {
+  display: flex;
+  justify-content: center;
+  padding: 24px 0;
+  @include phone {
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+
+  &::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $color-yellow;
+  }
+
+  &__items {
+    display: flex;
+    @include phone {
+      width: 100%;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 3vw;
+    cursor: pointer;
+    min-height: 58px;
+    justify-content: space-between;
+    opacity: .7;
+    transition: all .3s ease;
+    position: relative;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &::before {
+      content: "";
+      height: 40px;
+      width: 1px;
+      background: $color-grey-3;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translate(0, -50%);
+    }
+
+    svg {
+      //@include phone {
+      //  display: none;
+      //}
+    }
+
+    &._active {
+      opacity: 1;
+
+      &::after {
+        content: "";
+        width: 20px;
+        height: 20px;
+        background: $bg-red;
+        position: absolute;
+        z-index: -1;
+        bottom: -33px;
+        border-radius: 0 0 5px 0;
+        transform: rotate(45deg);
+      }
+    }
+
+    &-name {
+      font-size: 15px;
+      color: $color-white;
+      text-transform: capitalize;
+    }
+  }
+}

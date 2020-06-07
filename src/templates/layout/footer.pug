@@ -1,2 +1,26 @@
-mixin footer()
-    footer Футер
+mixin footer(mixin)
+    footer(class='footer' + `${mixin ? ' ' + mixin: ''}`)
+        .container
+            .footer__wrap
+                .footer__socials
+                    a(href="" target="blank").footer__socials-item
+                        include ../../images/icons/socials/fb.svg
+                    a(href="" target="blank").footer__socials-item
+                         include ../../images/icons/socials/twitter.svg
+                    a(href="" target="blank").footer__socials-item
+                         include ../../images/icons/socials/inst.svg
+                    a(href="" target="blank").footer__socials-item
+                         include ../../images/icons/socials/youtube.svg
+                    a(href="" target="blank").footer__socials-item
+                         include ../../images/icons/socials/envelope.svg
+
+                .footer__logo
+                    include ../../images/icons/logo.svg
+
+                .footer__links
+                    a.footer__link(href="") Pizzaro Restaurant
+                    a.footer__link(href="https://goo.gl/maps/t4ur8XGWvLmvKcj86" target="_blank") 901-947 South Drive, Houston, TX 77057, USA
+                    a.footer__link(href="tel:15551234") Telephone: +1 555 1234
+                    a.footer__link(href="") Fax: +1 555 4444
+
+                .footer__copyright Copyright © 2016 Pizzaro Theme. All rights reserved.

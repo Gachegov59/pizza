@@ -1,3 +1,3 @@
-mixin header()
-    header.header
-       
+mixin header(mixin)
+    header(class='header' + `${mixin ? ' ' + mixin: ''}`)
+        +header-nav()
