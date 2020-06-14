@@ -1,3 +1,15 @@
 .dashboard {
-  min-height: 500px;
+  min-height: 1000px;
+
+  &__filters {
+    border-bottom: 1px solid $color-grey-3;
+    display: flex;
+    padding: 33px 0;
+  }
+
+  &__cards {
+    margin: 0 -20px 140px;
+    display: flex;
+    flex-wrap: wrap;
+  }
 }

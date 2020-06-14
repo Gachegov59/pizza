@@ -26,23 +26,26 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 3vw;
+    padding: 0 54px;
     cursor: pointer;
     min-height: 58px;
     justify-content: space-between;
     opacity: .7;
     transition: all .3s ease;
     position: relative;
+    @include small-desktop {
+      padding: 0 3vw;
+    }
 
     &:hover {
       opacity: 1;
     }
 
-    &::before {
+    &:not(:last-child)::before {
       content: "";
       height: 40px;
       width: 1px;
-      background: $color-grey-3;
+      background: $color-pink;
       position: absolute;
       right: 0;
       top: 50%;

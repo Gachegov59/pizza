@@ -5,12 +5,21 @@
 @import "fonts";
 @import "base";
 
+//layout
+@import "blocks/layout/header";
+@import "blocks/layout/footer";
+
+//ui
+@import "blocks/ui/filter";
+@import "blocks/ui/size";
+@import "blocks/ui/price";
+@import "blocks/ui/btn";
+@import "blocks/ui/pagination";
 
 
-
-@import "blocks/header/header";
-@import "blocks/footer";
-@import "blocks/section";
+//blocks
 @import "blocks/slider";
 @import "blocks/menu";
+@import "blocks/section";
 @import "blocks/dashboard";
+@import "blocks/card";

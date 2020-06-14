@@ -1,0 +1,25 @@
+.btn {
+  background: $color-btn;
+  display: flex;
+  padding: 20px 65px;
+  color: $color-white;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 45px;
+  cursor: pointer;
+  align-items: center;
+  transition: all .3s ease;
+  &:hover {
+    &::before {
+      transform: rotate(360deg)
+    }
+  }
+  &::before{
+    content: "";
+    background: url("../img/icons/btn/basket-icon.svg");
+    width: 17px;
+    height: 20px;
+    margin-right: 17px;
+    transition: all .3s ease;
+  }
+}

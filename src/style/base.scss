@@ -17,6 +17,7 @@ body {
 
 ul {
   padding: 0;
+  margin: 0;
 }
 
 li {
@@ -32,23 +33,36 @@ h1 {
 }
 
 h2 {
-  font-size: rem(32px);
+  font-size: rem(28px);
+  line-height: rem(34px);
 }
 
 h3 {
-  font-size: rem(28px);
+  font-size: rem(24px);
+  line-height: rem(34px);
 }
 
 h4 {
-  font-size: rem(24px);
+  font-size: rem(19px);
+  line-height: rem(28px);
 }
 
 h5 {
-  font-size: rem(16px);
+  font-size: rem(15px);
+  line-height: rem(12px);
 }
 
 h6 {
   font-size: rem(12px);
+}
+
+h1,
+ h2,
+ h3,
+ h4,
+ h5,
+ h6 {
+  color: $color-dark-2;
 }
 
 .container {

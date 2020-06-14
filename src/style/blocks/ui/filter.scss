@@ -1,0 +1,64 @@
+.filter {
+  padding: 0 30px;
+  border: 1px solid $color-grey-3;
+  border-radius: 35px;
+  min-height: 45px;
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: -.3px;
+  margin-right: 16px;
+  cursor: pointer;
+  transition: all .3s ease;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:hover {
+    background: $color-grey-3;
+  }
+
+  &::backdrop {
+    background: red;
+    padding: 20px;
+    width: 500px;
+  }
+
+  &._active {
+    font-weight: bold;
+    background: $color-grey-3;
+  }
+
+  &._icon {
+    &::before {
+      margin-right: 9px;
+    }
+
+    &-veg {
+      &::before {
+        content: url("../img/icons/filters/vegetarian-icon.svg");
+        height: 14px;
+        width: 13px
+      }
+    }
+
+    &-hot {
+      &::before {
+        content: url("../img/icons/filters/paprika-icon.svg");
+        height: 19px;
+        width: 17px;
+      }
+    }
+
+    &-meat {
+      &::before {
+        content: url("../img/icons/filters/meat-icon.svg");
+        height: 23px;
+        width: 15px;
+      }
+    }
+  }
+
+}

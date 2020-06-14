@@ -33,6 +33,19 @@
     margin: 8px;
     cursor: pointer;
     transition: all .3s ease;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+
     &:hover {
       background: $color-yellow;
     }

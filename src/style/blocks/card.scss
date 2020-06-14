@@ -1,0 +1,156 @@
+.card {
+  max-width: calc(100% / 3 - 40px);
+  text-align: center;
+  margin: 20px 20px -40px;
+  transition: all .3s ease;
+  @include tablet {
+    max-width: calc(100% / 2 - 40px);
+  }
+  @include phone {
+    max-width: calc(100% - 40px);
+    margin-bottom: 40px;
+  }
+
+  &:hover {
+    box-shadow: 0px 4px 40px rgb(230, 230, 230);
+
+
+    .btn {
+      visibility: visible;
+      opacity: 1;
+      //position: absolute;
+    }
+  }
+
+  a {
+    display: block;
+  }
+
+  img {
+    max-width: 360px;
+    width: 100%;
+    margin-bottom: 5px;
+    height: 320px; //todo: убрать
+  }
+
+  h3 {
+    margin: 7px 0 10px;
+    font-weight: normal;
+    letter-spacing: -1.24px;
+
+    &._icon {
+      span::after {
+        margin-left: 3px;
+      }
+
+      &-veg {
+        span {
+          &:nth-child(1) {
+            &::after {
+              content: url("../img/icons/filters/vegetarian-icon.svg");
+              height: 14px;
+              width: 13px
+            }
+          }
+        }
+
+      }
+
+      &-hot {
+        span {
+          &:nth-child(2) {
+            &::after {
+              content: url("../img/icons/filters/paprika-icon.svg");
+              height: 19px;
+              width: 13px
+            }
+          }
+        }
+      }
+
+      &-meat {
+        span {
+          &:nth-child(3) {
+            &::after {
+              content: url("../img/icons/filters/meat-icon.svg");
+              height: 14px;
+              width: 13px
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__text {
+    font-size: 14px;
+    font-style: italic;
+    line-height: 1.64;
+    letter-spacing: .35px;
+    color: $color-grey-4;
+    //margin-bottom: 30px;
+    min-height: 85px;
+    max-height: 120px;
+    overflow: hidden;
+    text-overflow: clip;
+  }
+
+  &__content {
+    padding: 0 38px;
+  }
+
+  &__separator {
+    font-size: 14px;
+    position: relative;
+    margin-bottom: 30px;
+
+    &::after,
+ &::before {
+      content: "";
+      height: 1px;
+      background: $color-grey-3;
+      position: absolute;
+      width: 33%;
+      top: 50%;
+      z-index: -10;
+      transform: translate(0, -50%);
+    }
+
+    &::after {
+      left: 0;
+    }
+
+    &::before {
+      right: 0;
+    }
+  }
+
+  &__choice {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 -12px 40px;
+
+    &-item {
+      display: flex;
+      align-items: center;
+      margin: 0 12px;
+    }
+  }
+
+  &__btn {
+    display: flex;
+    justify-content: center;
+    background: $color-white;
+    position: marker;
+  }
+
+  .size {
+    margin-right: 9px;
+  }
+
+  .btn {
+    visibility: hidden;
+    opacity: 0;
+    margin-bottom: 20px;
+  }
+}

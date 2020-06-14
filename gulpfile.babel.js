@@ -2,7 +2,7 @@
 
 const path = {
     build: {
-        html: 'build/',
+        html: 'build',
         js: 'build/js/',
         css: 'build/css/',
         images: 'build/images/',
@@ -61,25 +61,16 @@ const production = !!util.env.production;
 // });
 
 gulp.task('server', function () {
-    browserSync.init({
+    browserSync({
         server: {
-            baseDir: "./build/"
-            // index: "/build/html/"
+           baseDir: './build'
         }
     });
+
+    // gulp.watch("build/css/*.css", ['css']);
+    gulp.watch("build/html/*.html").on('change', browserSync.reload);
+
 });
-
-
-// const server = require('browser-sync').create()
-//
-// module.exports = function serve(cb) {
-//     server.init ({
-//         server: 'build',
-//         notify: false,
-//         open: true,
-//         cors: true
-//     })
-// }
 
 gulp.task('js', () => {
     return gulp.src(path.src.js)
@@ -102,14 +93,14 @@ gulp.task('styles', () => {
             includePaths: ['node_modules']
         }).on('error', sass.logError))
         .pipe(prefixer({
-            browsers: ['last 2 versions'],
+            overrideBrowserslist: ['last 2 versions'],
             cascade: false
         }))
         .pipe(gulpif(!production, sourcemaps.write()))
         .pipe(gulpif(production, cssmin()))
         .pipe(gulp.dest(path.build.css))
         // .pipe(connect.reload());
-        .pipe(browserSync.stream());
+        .pipe(browserSync.stream({match: '**/*.css'}));
 });
 
 gulp.task('pug', () => {

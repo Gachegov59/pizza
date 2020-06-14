@@ -1,5 +1,14 @@
+include filters
+include cards
+include pagination
+
 mixin dashboard()
     section.section
-        .container
-            .dashboard
-                h2(style='margin:150px auto; ') КЕК!
+        .dashboard
+            .container
+                .dashboard__filters
+                    +filters()
+                .dashboard__cards
+                        +cards()
+                .dashboard__pagination
+                        +pagination()
