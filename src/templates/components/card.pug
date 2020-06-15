@@ -1,5 +1,5 @@
 mixin card(img, title, text, price1, price2, taste )
-    .card
+    .card.js-card
         a(href='#'): img(src=`images/pizzas/pizza-${img}.png` alt='pizza').card__img
         .card__content
             h3(class=`card__title ${taste === undefined ? '' : taste}`) <span>#[=title ]</span> <span></span> <span></span> <span></span>
@@ -7,10 +7,10 @@ mixin card(img, title, text, price1, price2, taste )
                 p= text
             .card__separator Pick Size
             .card__choice
-                .card__choice-item
+                .card__choice-item.js-card__choice-item
                     .size 22 #[span cm]
                     .price <sup> $ </sup> #[=price1]
-                .card__choice-item
+                .card__choice-item.js-card__choice-item
                     .size 22 #[span cm]
                     .price <sup> $ </sup> #[=price2]
         .card__btn

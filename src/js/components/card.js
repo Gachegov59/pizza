@@ -1,6 +1,6 @@
 $(function () {
-    let $card = $('.card');
-    let $choiceItem = $('.card__choice-item');
+    let $card = $('.js-card');
+    let $choiceItem = $('.js-card__choice-item');
 
     $($card).each( function () {
         $(this).find($choiceItem).on('click', function () {
