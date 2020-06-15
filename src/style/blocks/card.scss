@@ -1,12 +1,15 @@
 .card {
   max-width: calc(100% / 3 - 40px);
   text-align: center;
-  margin: 20px 20px -40px;
+  //margin: 20px 20px -40px;
+  margin: 20px;
   transition: all .3s ease;
-  @include tablet {
+  position: relative;
+  background: $color-white;
+  @include phone {
     max-width: calc(100% / 2 - 40px);
   }
-  @include phone {
+  @include respond-to-max($smart) {
     max-width: calc(100% - 40px);
     margin-bottom: 40px;
   }
@@ -14,11 +17,22 @@
   &:hover {
     box-shadow: 0px 4px 40px rgb(230, 230, 230);
 
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 100px;
+      z-index: 2;
+    }
 
-    .btn {
-      visibility: visible;
-      opacity: 1;
-      //position: absolute;
+    &._show-btn {
+      .btn {
+        visibility: visible;
+        opacity: 1;
+        position: relative;
+        z-index: 20;
+      }
     }
   }
 
@@ -30,13 +44,21 @@
     max-width: 360px;
     width: 100%;
     margin-bottom: 5px;
-    height: 320px; //todo: убрать
+    //height: 320px; //todo: убрать
   }
 
   h3 {
     margin: 7px 0 10px;
     font-weight: normal;
     letter-spacing: -1.24px;
+    @include tablet {
+      //min-height: 68px;
+      span {
+        &:nth-child(1) {
+          display: block;
+        }
+      }
+    }
 
     &._icon {
       span::after {
@@ -45,7 +67,7 @@
 
       &-veg {
         span {
-          &:nth-child(1) {
+          &:nth-child(2) {
             &::after {
               content: url("../img/icons/filters/vegetarian-icon.svg");
               height: 14px;
@@ -58,7 +80,7 @@
 
       &-hot {
         span {
-          &:nth-child(2) {
+          &:nth-child(3) {
             &::after {
               content: url("../img/icons/filters/paprika-icon.svg");
               height: 19px;
@@ -70,7 +92,7 @@
 
       &-meat {
         span {
-          &:nth-child(3) {
+          &:nth-child(4) {
             &::after {
               content: url("../img/icons/filters/meat-icon.svg");
               height: 14px;
@@ -89,14 +111,21 @@
     letter-spacing: .35px;
     color: $color-grey-4;
     //margin-bottom: 30px;
-    min-height: 85px;
+    min-height: 110px;
     max-height: 120px;
     overflow: hidden;
     text-overflow: clip;
+    @include respond-between($tablet-width ,$desktop-width) {
+      font-size: 12px;
+      line-height: 18px;
+    }
   }
 
   &__content {
     padding: 0 38px;
+    @include respond-to-max($desktop-width) {
+      padding: 0 15px;
+    }
   }
 
   &__separator {
@@ -105,14 +134,14 @@
     margin-bottom: 30px;
 
     &::after,
- &::before {
+    &::before {
       content: "";
-      height: 1px;
+      height: 2px;
       background: $color-grey-3;
       position: absolute;
       width: 33%;
       top: 50%;
-      z-index: -10;
+      z-index: 10;
       transform: translate(0, -50%);
     }
 
@@ -129,11 +158,24 @@
     display: flex;
     justify-content: space-between;
     margin: 0 -12px 40px;
+    @include tablet {
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
 
     &-item {
       display: flex;
       align-items: center;
       margin: 0 12px;
+      @include tablet {
+        margin-bottom: 10px;
+      }
+
+      &._active {
+        .size {
+          background: $color-yellow-3;
+        }
+      }
     }
   }
 
@@ -141,7 +183,18 @@
     display: flex;
     justify-content: center;
     background: $color-white;
-    position: marker;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    //&:hover {
+    //  .btn {
+    //    visibility: visible;
+    //    opacity: 1;
+    //    position: relative;
+    //    z-index: 20;
+    //  }
+    //}
   }
 
   .size {
@@ -152,5 +205,6 @@
     visibility: hidden;
     opacity: 0;
     margin-bottom: 20px;
+    position: absolute;
   }
 }

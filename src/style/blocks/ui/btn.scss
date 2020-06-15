@@ -9,17 +9,50 @@
   cursor: pointer;
   align-items: center;
   transition: all .3s ease;
+
   &:hover {
     &::before {
       transform: rotate(360deg)
     }
   }
-  &::before{
-    content: "";
-    background: url("../img/icons/btn/basket-icon.svg");
-    width: 17px;
-    height: 20px;
-    margin-right: 17px;
-    transition: all .3s ease;
+
+  &._icon {
+    &-basket {
+      &::before {
+        content: "";
+        background: url("../img/icons/btn/basket-icon.svg");
+        width: 17px;
+        height: 20px;
+        margin-right: 17px;
+        transition: all .3s ease;
+      }
+    }
+    &-arrow {
+      &::before {
+        content: "";
+        background: url("../img/icons/btn/pagination.svg");
+        width: 17px;
+        height: 20px;
+        margin-right: 17px;
+        transition: all .3s ease;
+      }
+    }
+  }
+
+  &._color-transparent {
+    background: transparent;
+    border: 1px solid $color-grey-6;
+    color: $color-dark-3 ;
+  }
+
+  &._padding-s {
+    padding: 20px 37px;
+  }
+  &._bold-none {
+    font-weight: normal;
+  }
+
+  &._tt-upper {
+   text-transform: uppercase;
   }
 }

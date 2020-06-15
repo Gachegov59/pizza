@@ -4,6 +4,7 @@
   &__filters {
     border-bottom: 1px solid $color-grey-3;
     display: flex;
+    flex-wrap: wrap;
     padding: 33px 0;
   }
 
