@@ -1,5 +1,5 @@
 {
-  "name": "digital-spectr-html-markup",
+  "name": "pizza",
   "version": "1.0.0",
   "description": "Quick start markup",
   "scripts": {
@@ -10,7 +10,7 @@
     "js:lint": "eslint \"src/js/**/*.js\"",
     "js:fix": "eslint \"src/js/**/*.js\" --fix"
   },
-  "author": "Digital Spectr <man@digital-spectr.ru> (http://digital-spectr.ru)",
+  "author": "gachegov",
   "license": "MIT",
   "dependencies": {
     "@babel/core": "^7.4.4",
@@ -48,7 +48,7 @@
   "devDependencies": {},
   "husky": {
     "hooks": {
-      "pre-commit": "npm run js:lint && npm run style:lint"
+      "pre-commit": ""
     }
   }
 }

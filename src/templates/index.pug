@@ -1,11 +1,12 @@
 extends ./layout/layout
+include ./components/slider
+include ./components/menu
+include ./components/dashboard
 
 block variables
-    - var page_title = 'Карта сайта';
+    - var page_title = 'Pizza';
 
 block content
-    .container
-        ul
-            li: a(href="ui.html") UI Kit
-            li: a(href="main.html") Главная
-
+    +slider()
+    +menu()
+    +dashboard()
