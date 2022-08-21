@@ -7,15 +7,15 @@
     flex-direction: column;
   }
 
-  &::after {
-    content: "";
-    position: absolute;
-    left: -5000px;
-    right: -5000px;
-    top: 0;
-    border-top: 1px solid $color-grey-3;
-    overflow: auto;
-  }
+  //&::after {
+  //  content: "";
+  //  position: absolute;
+  //  left: -5000px;
+  //  right: -5000px;
+  //  top: 0;
+  //  border-top: 1px solid $color-grey-3;
+  //  overflow: auto;
+  //}
 
   &__items {
     display: flex;

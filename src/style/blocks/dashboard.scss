@@ -1,6 +1,6 @@
 .dashboard {
   min-height: 1000px;
-
+  overflow: hidden;
   &__filters {
     border-bottom: 1px solid $color-grey-3;
     display: flex;
